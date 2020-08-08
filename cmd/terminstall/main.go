@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/IgooorGP/terminstall/internal/terminstaller/startup"
+	"github.com/IgooorGP/terminstall/internal/terminstall/startup"
 	"github.com/rs/zerolog/log"
 )
 
