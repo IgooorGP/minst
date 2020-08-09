@@ -1,0 +1,29 @@
+version: "1.0"
+install_providers: true
+providers:
+  - name: brew
+    install_provider_commands:
+      - /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+      - brew update
+    install_apps_command: brew
+
+  - name: brewcask
+    install_apps_command: brew cask
+
+machine_setup:
+  continue_on_error: true
+  installations:
+    - provider: brewcask
+      apps:
+        - slack
+        - alfred
+        - vscode
+        - pycharm
+
+    - provider: brew
+      apps:
+        - aws
+        - gcloud
+        - docker
+        - kubectl
+        - k9s
