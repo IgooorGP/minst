@@ -8,7 +8,7 @@ First idea of `Terminstall` yml configuration file:
 
 ```yml
 version: "1.0"
-install_providers: "yes"
+install_providers: true
 providers:
   - name: brew
     base_command: brew install
@@ -20,7 +20,7 @@ providers:
     base_command: brew cask install
 
 machine_setup:
-  continue_on_error: "yes"
+  continue_on_error: true
   installations:
     - provider: brewcask
       apps:

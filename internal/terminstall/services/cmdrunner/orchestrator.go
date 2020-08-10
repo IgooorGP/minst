@@ -1,4 +1,4 @@
-package installer
+package cmdrunner
 
 import (
 	"bytes"

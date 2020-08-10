@@ -1,17 +1,16 @@
-package installer
+package parser
 
 import (
 	"testing"
 
-	"github.com/IgooorGP/terminstall/internal/terminstall/services/parser"
 	"github.com/stretchr/testify/assert"
 )
 
-const testDataDirectory = "../../../../test/data/test_install_less_apps.yaml"
+const testDataDirectoryYmlLessApps = "../../../../test/data/test_install_less_apps.yaml"
 
 func TestShouldGetProvidersForInstallFile(t *testing.T) {
 	// arrange
-	installFile := parser.ParseInstallFile(testDataDirectory)
+	installFile := ParseInstallFile(testDataDirectoryYmlLessApps)
 
 	// act
 	providers := ReadProvidersFromInstallFile(installFile)
@@ -27,7 +26,7 @@ func TestShouldGetProvidersForInstallFile(t *testing.T) {
 
 func TestGetInstallCommandsForProvider(t *testing.T) {
 	// arrange
-	installFile := parser.ParseInstallFile(testDataDirectory)
+	installFile := ParseInstallFile(testDataDirectoryYmlLessApps)
 
 	// act
 	providers := ReadProvidersFromInstallFile(installFile)
