@@ -24,4 +24,6 @@ func main() {
 		log.Info().Msgf("Installing apps related to the provider...")
 		cmdrunner.RunCommands(provider.InstallAppsCommands, installFile.MachineSetup.ContinueOnError)
 	}
+
+	log.Info().Msg("Terminstaller has finished its job!")
 }
