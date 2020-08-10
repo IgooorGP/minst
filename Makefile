@@ -14,5 +14,5 @@ run:
 build: 
 	$(GOBUILD) -o $(BINARY_OUTPUT_NAME) -v cmd/terminstall/main.go
 
-test: 
+tests: 
 	$(GOTEST) ./... -cover ./... -v
