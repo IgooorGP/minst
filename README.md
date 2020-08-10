@@ -11,13 +11,13 @@ version: "1.0"
 install_providers: "yes"
 providers:
   - name: brew
+    base_command: brew install
     install_provider_commands:
       - /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
       - brew update
-    install_apps_command: brew <app_name>
 
   - name: brewcask
-    install_apps_command: brew cask <app_name>
+    base_command: brew cask install
 
 machine_setup:
   continue_on_error: "yes"

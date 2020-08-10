@@ -20,7 +20,7 @@ type InstallFile struct {
 
 	Providers []struct {
 		Name                    string   `yaml:"name"`
-		InstallAppsCommand      string   `yaml:"install_apps_command"`
+		BaseCommand             string   `yaml:"base_command"`
 		InstallProviderCommands []string `yaml:"install_provider_commands"`
 	} `yaml:"providers"`
 

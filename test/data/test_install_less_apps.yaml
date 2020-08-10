@@ -5,10 +5,10 @@ providers:
     install_provider_commands:
       - /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
       - brew update
-    base_command: brew
+    base_command: brew install
 
   - name: brewcask
-    base_command: brew cask
+    base_command: brew cask install
 
 machine_setup:
   continue_on_error: true
@@ -16,9 +16,7 @@ machine_setup:
     - provider: brewcask
       apps:
         - slack
-        - alfred
         - vscode
-        - pycharm
 
     - provider: brew
       apps:
