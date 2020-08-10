@@ -6,12 +6,11 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestInstallFileParser(t *testing.T) {
-	// arrange
-	filePath := "../../../../tests/test_install_v1.yml"
+const testDataDirectory = "../../../../test/data/test_install_v1.yml"
 
+func TestInstallFileParser(t *testing.T) {
 	// act
-	parsedInstallFile := ParseInstallFile(filePath)
+	parsedInstallFile := ParseInstallFile(testDataDirectory)
 
 	// assert -- providers
 	assert.True(t, parsedInstallFile.InstallProviders)
