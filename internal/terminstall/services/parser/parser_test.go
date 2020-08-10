@@ -17,12 +17,12 @@ func TestInstallFileParser(t *testing.T) {
 	assert.Equal(t, len(parsedInstallFile.Providers), 2)
 
 	assert.Equal(t, parsedInstallFile.Providers[0].Name, "brew")
-	assert.Equal(t, parsedInstallFile.Providers[0].InstallAppsCommand, "brew")
+	assert.Equal(t, parsedInstallFile.Providers[0].BaseCommand, "brew")
 	assert.Equal(t, parsedInstallFile.Providers[0].InstallProviderCommands, []string{
 		"/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)\"", "brew update"})
 
 	assert.Equal(t, parsedInstallFile.Providers[1].Name, "brewcask")
-	assert.Equal(t, parsedInstallFile.Providers[1].InstallAppsCommand, "brew cask")
+	assert.Equal(t, parsedInstallFile.Providers[1].BaseCommand, "brew cask")
 
 	assert.True(t, parsedInstallFile.MachineSetup.ContinueOnError)
 	assert.Len(t, parsedInstallFile.MachineSetup.Installations, 2)
