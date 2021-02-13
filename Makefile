@@ -6,13 +6,13 @@ BINARY_OUTPUT_NAME=minst
 
 # Commands
 default: 
-	$(GORUN) cmd/minst/main.go
+	$(GORUN) cmd/minst/root.go
 
 run: 
-	$(GORUN) cmd/minst/main.go
+	$(GORUN) cmd/minst/root.go
 
 build: 
-	$(GOBUILD) -o $(BINARY_OUTPUT_NAME) -v cmd/minst/main.go
+	$(GOBUILD) -o $(BINARY_OUTPUT_NAME) -v cmd/minst/root.go
 
 tests: 
 	$(GOTEST) ./... -cover ./... -v

@@ -2,6 +2,22 @@
 
 One command-line tool to install all of your apps on new machines based on a `yml` config file! No more waiting waiting hours or forgetting which apps to install, just create a install file and you are good to go! So, yea, it's mine and its YOUR installer too!
 
+## Usage: cli
+
+```sh
+# looks for install.yml on your machine (--dry-run -> false, --)
+minst install
+
+# specifies a flag using the flag -f
+minst install -f my-cfg.yml
+
+# runs without actualling installing/downloading anything
+minst install --dry-run
+
+# runs installs sequentially instead of in parallel
+minst install --no-parallelism
+```
+
 ## Usage: Install file
 
 minst reads all your desired apps from `yml/yaml` files with the following basic format:
