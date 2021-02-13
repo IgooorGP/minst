@@ -1,6 +1,6 @@
-# minst
+# Minst: My installer!
 
-One command-line tool to install all of your apps on new machines based on a `yml` config file! No more waiting waiting hours or forgetting which apps to install, just create a install file and you are good to go!
+One command-line tool to install all of your apps on new machines based on a `yml` config file! No more waiting waiting hours or forgetting which apps to install, just create a install file and you are good to go! So, yea, it's mine and its YOUR installer too!
 
 ## Usage: Install file
 
