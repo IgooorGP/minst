@@ -1,4 +1,4 @@
-module github.com/IgooorGP/terminstall
+module github.com/IgooorGP/minst
 
 go 1.14
 

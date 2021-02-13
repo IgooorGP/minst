@@ -3,7 +3,7 @@ package parser
 import (
 	"strings"
 
-	"github.com/IgooorGP/terminstall/internal/terminstall/services/cmdrunner"
+	"github.com/IgooorGP/minst/internal/minst/services/cmdrunner"
 )
 
 // ExtractCommandAndArgsFromString - reads a string and parses it to a terminal command

@@ -3,7 +3,7 @@ package parser
 import (
 	"testing"
 
-	"github.com/IgooorGP/terminstall/internal/terminstall/services/cmdrunner"
+	"github.com/IgooorGP/minst/internal/minst/services/cmdrunner"
 	"github.com/stretchr/testify/assert"
 )
 

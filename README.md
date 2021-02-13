@@ -1,10 +1,10 @@
-# terminstall
+# minst
 
 One command-line tool to install all of your apps on new machines based on a `yml` config file! No more waiting waiting hours or forgetting which apps to install, just create a install file and you are good to go!
 
 ## Usage: Install file
 
-Terminstall reads all your desired apps from `yml/yaml` files with the following basic format:
+minst reads all your desired apps from `yml/yaml` files with the following basic format:
 
 ```yml
 version: "1.0"

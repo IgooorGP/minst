@@ -1,7 +1,7 @@
 package parser
 
 import (
-	"github.com/IgooorGP/terminstall/internal/terminstall/services/cmdrunner"
+	"github.com/IgooorGP/minst/internal/minst/services/cmdrunner"
 )
 
 // Provider - represents a software provider in a way that it's used to install such software

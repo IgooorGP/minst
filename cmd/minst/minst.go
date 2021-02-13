@@ -1,19 +1,19 @@
 package main
 
 import (
-	"github.com/IgooorGP/terminstall/internal/terminstall/services/cmdrunner"
-	"github.com/IgooorGP/terminstall/internal/terminstall/services/parser"
-	"github.com/IgooorGP/terminstall/internal/terminstall/startup"
+	"github.com/IgooorGP/minst/internal/minst/services/cmdrunner"
+	"github.com/IgooorGP/minst/internal/minst/services/parser"
+	"github.com/IgooorGP/minst/internal/minst/startup"
 	"github.com/rs/zerolog/log"
 )
 
 func main() {
 	startup.SetupApp()
 
-	log.Debug().Msgf("Terminstaller is parsing user-supplied commands...")
+	log.Debug().Msgf("minster is parsing user-supplied commands...")
 	commandLineArgs := parser.ParseCommandLineArgs()
 
-	log.Info().Msgf("Terminstaller: using install file at %s ...", commandLineArgs.FilePath)
+	log.Info().Msgf("minster: using install file at %s ...", commandLineArgs.FilePath)
 	installFile := parser.ParseInstallFile(commandLineArgs.FilePath)
 	providers := parser.ReadProvidersFromInstallFile(installFile)
 
@@ -25,5 +25,5 @@ func main() {
 		cmdrunner.RunCommands(provider.InstallAppsCommands, installFile.MachineSetup.ContinueOnError)
 	}
 
-	log.Info().Msg("Terminstaller has finished its job!")
+	log.Info().Msg("minster has finished its job!")
 }
