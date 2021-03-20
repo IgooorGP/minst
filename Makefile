@@ -1,18 +1,13 @@
-GOCMD=go
-GORUN=$(GOCMD) run
-GOBUILD=$(GOCMD) build
-GOTEST=$(GOCMD) test
-BINARY_OUTPUT_NAME=minst
+# Make variables
+BIN_OUTPUT_FOLDER := bin
+BIN_MAIN_FILE := minst
 
 # Commands
 default: 
-	$(GORUN) cmd/minst/root.go
-
-run: 
-	$(GORUN) cmd/minst/root.go
+	@go run cmd/minst/*.go
 
 build: 
-	$(GOBUILD) -o $(BINARY_OUTPUT_NAME) -v cmd/minst/root.go
+	@go build -o $(BIN_OUTPUT_FOLDER)/$(BIN_MAIN_FILE) -v cmd/minst/*.go
 
 tests: 
-	$(GOTEST) ./... -cover ./... -v
+	@go test ./... -cover ./... -v
