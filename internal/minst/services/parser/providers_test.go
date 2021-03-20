@@ -13,7 +13,7 @@ func TestShouldGetProvidersForInstallFile(t *testing.T) {
 	installFile := ParseInstallFile(testDataDirectoryYmlLessApps)
 
 	// act
-	providers := ReadProvidersFromInstallFile(installFile)
+	providers := CreateSoftwareProviders(installFile)
 
 	// assert
 	assert.Len(t, providers, 2) // 2 providers
@@ -29,8 +29,8 @@ func TestGetInstallCommandsForProvider(t *testing.T) {
 	installFile := ParseInstallFile(testDataDirectoryYmlLessApps)
 
 	// act
-	providers := ReadProvidersFromInstallFile(installFile)
-	installCommands := GetInstallCommandsForProvider(installFile, providers[1]) // brew cask
+	providers := CreateSoftwareProviders(installFile)
+	installCommands := GetInstallCommandsForProvider(installFile, providers[1].Name, providers[1].BaseCommand) // brew cask
 	brewCaskProvider := providers[1]
 
 	// assert

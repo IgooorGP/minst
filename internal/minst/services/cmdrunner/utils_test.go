@@ -3,12 +3,13 @@ package cmdrunner
 import (
 	"testing"
 
+	"github.com/IgooorGP/minst/internal/minst/models"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestShouldExtractStringFromCommandAndArgs(t *testing.T) {
 	// arrange
-	cmd := TerminalCommand{Command: "ls", CommandArgs: []string{"-ls", "."}}
+	cmd := models.TerminalCommand{Command: "ls", CommandArgs: []string{"-ls", "."}}
 
 	// act
 	commandAndArgsString := ExtractStringFromCommandAndArgs(cmd.Command, cmd.CommandArgs)
@@ -21,7 +22,7 @@ func TestShouldExtractStringFromCommandAndArgs(t *testing.T) {
 
 func TestShouldExtractStringFromCommandAndArgsForCommandWithoutArgs(t *testing.T) {
 	// arrange
-	cmd := TerminalCommand{Command: "ls", CommandArgs: nil}
+	cmd := models.TerminalCommand{Command: "ls", CommandArgs: nil}
 
 	// act
 	commandAndArgsString := ExtractStringFromCommandAndArgs(cmd.Command, cmd.CommandArgs)

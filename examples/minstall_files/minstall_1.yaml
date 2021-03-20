@@ -1,0 +1,26 @@
+version: "1.0"
+install_providers: true
+providers:
+  - name: brew
+    base_command: brew install
+
+  - name: brewcask
+    base_command: brew cask install
+
+machine_setup:
+  continue_on_error: true
+  installations:
+    - provider: brewcask
+      apps:
+        - slack
+        - alfred
+        - vscode
+        - pycharm
+
+    - provider: brew
+      apps:
+        - aws
+        - gcloud
+        - docker
+        - kubectl
+        - k9s

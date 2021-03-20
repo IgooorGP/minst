@@ -3,7 +3,7 @@ package parser
 import (
 	"testing"
 
-	"github.com/IgooorGP/minst/internal/minst/services/cmdrunner"
+	"github.com/IgooorGP/minst/internal/minst/models"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -15,7 +15,7 @@ func TestShouldCreateTerminalCommandWithArgs(t *testing.T) {
 	extractedCommand := ExtractCommandAndArgsFromString(command, " ")
 
 	// assert
-	expectedCommand := cmdrunner.TerminalCommand{Command: "ls", CommandArgs: []string{"-ls", "."}}
+	expectedCommand := models.TerminalCommand{Command: "ls", CommandArgs: []string{"-ls", "."}}
 
 	assert.Equal(t, expectedCommand, extractedCommand)
 }
@@ -28,7 +28,7 @@ func TestShouldCreateTerminalCommandWithoutArgs(t *testing.T) {
 	extractedCommand := ExtractCommandAndArgsFromString(command, " ")
 
 	// assert
-	expectedCommand := cmdrunner.TerminalCommand{Command: "ls", CommandArgs: nil}
+	expectedCommand := models.TerminalCommand{Command: "ls", CommandArgs: nil}
 
 	assert.Equal(t, expectedCommand, extractedCommand)
 }
@@ -41,7 +41,7 @@ func TestShouldCreateTerminalCommandsFromCommandsList(t *testing.T) {
 	extractedCommands := ExtractCommandsAndArgsFromStrings(commands, " ")
 
 	// assert
-	expectedCommands := []cmdrunner.TerminalCommand{
+	expectedCommands := []models.TerminalCommand{
 		{Command: "ls", CommandArgs: []string{"-ls", "."}},
 		{Command: "ls", CommandArgs: []string{"-ls", "/somefolder"}},
 		{Command: "ps", CommandArgs: nil},

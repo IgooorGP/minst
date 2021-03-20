@@ -4,20 +4,12 @@ import (
 	"bytes"
 	"os/exec"
 
+	"github.com/IgooorGP/minst/internal/minst/models"
 	"github.com/rs/zerolog/log"
 )
 
-// TerminalCommand - Abstraction of a terminal command that can be executed with or without errors
-type TerminalCommand struct {
-	Command      string
-	CommandArgs  []string
-	Executed     bool
-	HasError     bool
-	ErrorMessage string
-}
-
 // RunCommand - invokes a shell command and prints its stdout (or stderr if an error happens)
-func RunCommand(terminalCommand TerminalCommand, continueOnError bool) TerminalCommand {
+func RunCommand(terminalCommand models.TerminalCommand, continueOnError bool) models.TerminalCommand {
 	var stdout bytes.Buffer
 	var stderr bytes.Buffer
 
@@ -30,7 +22,10 @@ func RunCommand(terminalCommand TerminalCommand, continueOnError bool) TerminalC
 	// invokes the command till completion
 	err := commmand.Run()
 	terminalCommand.Executed = true
-	executedTerminalCommand := TerminalCommand{Command: terminalCommand.Command, CommandArgs: terminalCommand.CommandArgs, Executed: true}
+	executedTerminalCommand := models.TerminalCommand{
+		Command:     terminalCommand.Command,
+		CommandArgs: terminalCommand.CommandArgs,
+		Executed:    true}
 
 	if err != nil && !continueOnError {
 		log.Fatal().Msgf("[COMMAND_RESULT]: execution failed and won't continue on errors! process stderr: %s", stderr.String())
@@ -55,8 +50,8 @@ func RunCommand(terminalCommand TerminalCommand, continueOnError bool) TerminalC
 }
 
 // RunCommands - Synchronously invokes a list of terminal commands.
-func RunCommands(terminalCommands []TerminalCommand, continueOnError bool) []TerminalCommand {
-	var executedTerminalCommands []TerminalCommand
+func RunCommands(terminalCommands []models.TerminalCommand, continueOnError bool) []models.TerminalCommand {
+	var executedTerminalCommands []models.TerminalCommand
 
 	for _, terminalCommand := range terminalCommands {
 		executedTerminalCommands = append(executedTerminalCommands, RunCommand(terminalCommand, continueOnError))
@@ -66,6 +61,6 @@ func RunCommands(terminalCommands []TerminalCommand, continueOnError bool) []Ter
 }
 
 // RunCommandsAsync - Asynchronously invokes a list of terminal commands by using a worker pool of a given size.
-func RunCommandsAsync(commands []TerminalCommand, continueOnError bool, numberOfWorkers int) {
-
+func RunCommandsAsync(commands []models.TerminalCommand, continueOnError bool, numberOfWorkers int) {
+	// []TerminalCommand -> split work into != threads
 }
